@@ -1,0 +1,85 @@
+"use client"
+
+import { Eye, EyeOff, ShieldCheck } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
+
+export default function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false)
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-6 py-12">
+      <div className="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-cyan-950/30 lg:grid-cols-2">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-cyan-950/30 p-8 md:p-10">
+          <div className="mb-8 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-300">
+              <ShieldCheck className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-xl font-semibold text-white">CyberPrep AI</p>
+            </div>
+          </div>
+
+          <h1 className="text-3xl font-bold text-white">Welcome back</h1>
+          <p className="mt-3 max-w-md text-slate-400">
+            Continue building your cybersecurity expertise with personalized practice, tutoring, and certification tracking.
+          </p>
+
+          <div className="mt-10 space-y-4">
+            {[
+              'AI-powered tutoring for complex security concepts',
+              'Certification-specific study tracking',
+              'Focused practice with weak-topic insights',
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/50 p-3">
+                <div className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+                <span className="text-slate-200">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-8 md:p-10">
+          <div className="mb-8">
+            <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">Sign in</p>
+            <h2 className="mt-2 text-3xl font-bold text-white">Log in to your account</h2>
+          </div>
+
+          <form className="space-y-5">
+            <div>
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-200">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-500" />
+            </div>
+
+            <div>
+              <div className="mb-2 flex items-center justify-between">
+                <label htmlFor="password" className="text-sm font-medium text-slate-200">Password</label>
+                <button type="button" className="text-sm text-cyan-300">Forgot password?</button>
+              </div>
+              <div className="relative">
+                <input id="password" type={showPassword ? 'text' : 'password'} placeholder="Enter your password" className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 pr-11 text-slate-100 outline-none transition focus:border-cyan-500" />
+                <button type="button" onClick={() => setShowPassword((value) => !value)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </button>
+              </div>
+            </div>
+
+            <label className="flex items-center gap-2 text-sm text-slate-300">
+              <input type="checkbox" className="h-4 w-4 rounded border-slate-700 bg-slate-950" />
+              Remember me
+            </label>
+
+            <button type="submit" className="w-full rounded-xl bg-cyan-500 px-4 py-3 font-medium text-slate-950 transition hover:bg-cyan-400">
+              Log in
+            </button>
+          </form>
+
+          <p className="mt-6 text-center text-sm text-slate-400">
+            Don’t have an account?{' '}
+            <Link href="/register" className="font-medium text-cyan-300">Create one</Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
