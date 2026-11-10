@@ -13,37 +13,40 @@ const documents = [
 
 export default function AdminPage() {
   return (
-    <div className="space-y-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">Admin</p>
-        <h1 className="mt-2 text-3xl font-bold text-white">Operations dashboard</h1>
+    <div className="space-y-4">
+      <div className="page-header mb-2">
+        <p className="page-kicker">Admin</p>
+        <h1 className="page-title text-2xl">Operations dashboard</h1>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {stats.map((item) => (
-          <div key={item.label} className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
-            <p className="text-sm text-slate-400">{item.label}</p>
-            <p className="mt-3 text-3xl font-bold text-white">{item.value}</p>
+          <div key={item.label} className="metric-card !min-h-[90px] p-3">
+            <p className="text-xs text-slate-400">{item.label}</p>
+            <p className="mt-3 text-2xl font-bold text-white">{item.value}</p>
           </div>
         ))}
       </div>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-white">Document management</h2>
-          <button className="rounded-xl bg-cyan-500 px-4 py-2 font-medium text-slate-950">Upload PDF</button>
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-3.5 sm:p-4">
+        <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-base font-semibold text-white">Document management</h2>
+          <button className="app-button-primary px-3.5 py-2 text-sm">Upload PDF</button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {documents.map((doc) => (
-            <div key={doc.name} className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-950/50 p-4 md:flex-row md:items-center md:justify-between">
+            <div
+              key={doc.name}
+              className="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-950/50 p-3 md:flex-row md:items-center md:justify-between"
+            >
               <div>
-                <p className="font-medium text-white">{doc.name}</p>
-                <p className="text-sm text-slate-400">{doc.certification}</p>
+                <p className="text-sm font-medium text-white">{doc.name}</p>
+                <p className="text-xs text-slate-400">{doc.certification}</p>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="rounded-full border border-slate-700 px-2.5 py-1 text-xs text-slate-300">{doc.status}</span>
-                <button className="text-sm text-cyan-300">Reprocess</button>
+              <div className="flex items-center gap-2.5">
+                <span className="rounded-full border border-slate-700 px-2 py-1 text-[10px] text-slate-300">{doc.status}</span>
+                <button className="text-xs text-cyan-300">Reprocess</button>
               </div>
             </div>
           ))}

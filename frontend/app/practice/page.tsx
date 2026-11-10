@@ -15,12 +15,12 @@ const questions = [
 
 export default function PracticePage() {
   return (
-    <div className="space-y-6">
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 sm:p-5">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+    <div className="space-y-4">
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-3.5 sm:p-4">
+        <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="page-kicker">Practice lab</p>
-            <h1 className="page-title">Security assessment</h1>
+            <h1 className="page-title text-2xl">Security assessment</h1>
           </div>
           <div className="rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200">
             Question 1 of 2
@@ -28,24 +28,24 @@ export default function PracticePage() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 sm:p-5">
-        <p className="text-lg font-medium text-white">{questions[0].question}</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-3.5 sm:p-4">
+        <p className="text-base font-medium text-white">{questions[0].question}</p>
+        <div className="mt-4 grid gap-2.5 md:grid-cols-2">
           {questions[0].options.map((option) => (
             <button
               key={option}
-              className="rounded-xl border border-slate-700 bg-slate-950/60 px-4 py-3 text-left text-sm text-slate-200 transition hover:border-cyan-500/50 hover:bg-slate-900"
+              className="rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2.5 text-left text-sm text-slate-200 transition hover:border-cyan-500/50 hover:bg-slate-900"
             >
               {option}
             </button>
           ))}
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <button className="rounded-xl border border-slate-700 px-4 py-2 text-sm text-slate-200">Previous</button>
-          <div className="flex flex-wrap gap-3">
-            <button className="rounded-xl border border-slate-700 px-4 py-2 text-sm text-slate-200">Mark for review</button>
-            <button className="rounded-xl bg-cyan-500 px-4 py-2 text-sm font-medium text-slate-950">Next</button>
+        <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+          <button className="rounded-xl border border-slate-700 px-3.5 py-2 text-sm text-slate-200">Previous</button>
+          <div className="flex flex-wrap gap-2.5">
+            <button className="rounded-xl border border-slate-700 px-3.5 py-2 text-sm text-slate-200">Mark for review</button>
+            <button className="rounded-xl bg-cyan-500 px-3.5 py-2 text-sm font-medium text-slate-950">Next</button>
           </div>
         </div>
       </div>
